@@ -1,4 +1,12 @@
 class Movement < ActiveRecord::Base
-	monetize :amount_cents
 	
+  # This model has a separate currency column
+  #attr_accessible :amount_cents, :currency
+
+  # Use model level currency
+  register_currency :mxn
+
+  monetize :amount_centavos, with_model_currency: :currency
+
+
 end
