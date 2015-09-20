@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150917032655) do
+ActiveRecord::Schema.define(version: 20150919235658) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "name",            limit: 255
@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(version: 20150917032655) do
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
   end
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name",              limit: 255
+    t.integer  "budget_centavos",   limit: 4,   default: 0,     null: false
+    t.string   "budget_currency",   limit: 255, default: "MXN", null: false
+    t.integer  "category_group_id", limit: 4
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+  end
+
+  add_index "categories", ["category_group_id"], name: "index_categories_on_category_group_id", using: :btree
 
   create_table "movements", force: :cascade do |t|
     t.integer  "amount_centavos", limit: 4,   default: 0,     null: false
