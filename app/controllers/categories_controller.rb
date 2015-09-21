@@ -61,6 +61,15 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def add_child_to_category
+
+  end
+
+  def create_child_category
+
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category
