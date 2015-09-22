@@ -6,5 +6,12 @@
     </ul>
     <ul class="right">
       <li><%= link_to "Profiles", profiles_path %> </li>
-
+      <% if username_signed_in? %>
+      	<li><%= link_to current_username.full_name,  edit_username_registration_path %> </li>
+      	<li><%= link_to "Log Out", destroy_username_session_path, method: :delete %> </li>
+ 	  <% else %>
+ 	  	<li><%= link_to "Registration",  new_username_registration_path %> </li>
+      	<li><%= link_to "Log in",  new_username_session_path %> </li>
+      	
+ 	  <% end %>
     </ul>

@@ -2,6 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+  	<%= f.input :username_id, collection: Username.all, label_method: :full_name%>
     <%= f.input :amount %>
     <%= f.input :amount_currency %>
     <%= f.input :date, as: :date, html5: true %>

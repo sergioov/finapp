@@ -6,7 +6,9 @@
   <thead>
     <tr>
       <th>Amount</th>
-      <th>Currency</th>
+      <th>Register by</th>
+      <th>Date</th>
+      <th></th>
     </tr>
   </thead>
 
@@ -14,6 +16,9 @@
     <% @movements.each do |movement| %>
       <tr>
         <td><%= link_to (humanized_money_with_symbol movement.amount), edit_movement_path(movement) %></td>
+        <td><%= movement.username.full_name %></td>
+        <td><%= movement.date.strftime('%v')%></td>
+
         <td><%= link_to 'Delete', movement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

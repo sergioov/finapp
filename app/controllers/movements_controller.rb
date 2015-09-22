@@ -69,7 +69,7 @@ class MovementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def movement_params
-      params.require(:movement).permit(:amount, :amount_currency)
+      params.require(:movement).permit(:amount, :amount_currency, :username_id, :date)
     end
 
 end
